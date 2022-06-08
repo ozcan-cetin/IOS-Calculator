@@ -47,6 +47,25 @@ buttons.addEventListener("click",(e)=>{
                 secondScreen.innerText=Number(secondScreen.innerText)/100;
             }
             }
-        
     }
 })
+
+/*FUNCTION SECTION*/
+
+function operation(){
+    switch(firstScreen.innerText[firstScreen.innerText.length-1]){
+        case "+": secondScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1))+Number(secondScreen.innerText)).toFixed(4));
+        firstScreen.innerText="";
+        break;
+        case "-":secondScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1)) - Number(secondScreen.innerText)).toFixed(4));
+        firstScreen.innerText="";
+        break;
+        case "x":secondScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1)) * Number(secondScreen.innerText)).toFixed(4));
+        firstScreen.innerText="";
+        break;
+        case "/": secondScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1)) / Number(secondScreen.innerText)).toFixed(4));
+        firstScreen.innerText="";
+        break;
+        default: break
+    }
+}
