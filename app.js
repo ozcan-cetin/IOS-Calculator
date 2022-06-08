@@ -25,6 +25,13 @@ buttons.addEventListener("click",(e)=>{
                 secondScreen.innerText+=e.target.innerText;
             }
         }
+        else if(e.target.classList.contains("operator")){
+            if(secondScreen.innerText && secondScreen.innerText.match(/[\.]$/)==null){
+                secondScreen.innerText+=" " + e.target.innerText;
+                firstScreen.innerText=secondScreen.innerText; 
+                secondScreen.innerText="";
+            }
+        }
         
     }
 })
