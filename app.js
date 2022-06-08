@@ -20,6 +20,11 @@ buttons.addEventListener("click",(e)=>{
                 secondScreen.innerHTML+=e.target.innerText;
             }
         }
+        else if(e.target.classList.contains("dot")){
+            if(secondScreen.innerText && secondScreen.innerText.match(/\./)==null){
+                secondScreen.innerText+=e.target.innerText;
+            }
+        }
         
     }
 })
