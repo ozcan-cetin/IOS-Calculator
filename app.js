@@ -13,6 +13,13 @@ buttons.addEventListener("click",(e)=>{
             e.target.closest(".container").querySelector(".firstScreen").innerText="";
             e.target.closest(".container").querySelector(".secondScreen").innerText="";
         }
+        else if(e.target.classList.contains("num")){
+            if(secondScreen.innerText==0 && secondScreen.innerText.match(/\./)==null){
+                secondScreen.innerHTML=e.target.innerText;
+            }else{
+                secondScreen.innerHTML+=e.target.innerText;
+            }
+        }
         
     }
 })
