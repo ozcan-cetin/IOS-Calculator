@@ -3,3 +3,110 @@
     --gri: #a3a5aa;
     --koyugri: #363738;
   }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .container{
+    display: grid;
+    grid-template-rows: 30%, 70%;
+    /* border: 1px solid red; */
+    width: 20rem;
+    height: 35rem;
+    margin: 5rem auto ;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.screen{
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-rows: 50%;
+    justify-content: space-between;
+    height: 10rem;
+    width: 20rem;
+    color: white;
+    text-align: end;
+    font-size: 2rem;
+}
+
+.firstScreen{
+    /* border: 1px solid red; */ */
+    width: 18rem;
+    padding: .5rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.secondScreen{
+    /* border: 1px solid red; */
+    width: 18rem;
+    vertical-align: middle;
+    padding: .5rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.buttons{
+    /* border: 1px solid green; */
+    display: grid;
+    grid-template-rows:repeat(5, 4rem) ;
+    grid-template-columns:repeat(4, 4rem) ;
+    gap: .3rem;
+    height: 20rem;
+    width: 20rem;
+    justify-content: center;
+    align-content: center;
+}
+
+.button{
+    background-color: #363738;
+      border-radius: 50%;
+      color: #A3A5AA;
+      display: grid;
+      text-align: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+}
+.button:hover{
+    opacity: .5;
+}
+.zero{
+    grid-column: span 2;
+    border-radius: 2rem;
+}
+
+.ac, .plusminus, .percent{
+    border: 1px solid black;
+  background-color: var(--gri);
+  color: black;
+  /* font-size: 1.5rem; */
+}
+
+.divide, .multiply, .minus, .plus{
+    border: 1px solid black;
+  background-color: var(--sarı);
+  /* font-size: 1.5rem; */
+}
+
+.num, .dot, .equal{
+    border: 1px solid black;
+  background-color: var(--koyugri);
+  /* font-size: 2rem; */
+}
+
+@media (min-width:576px){
+    
+}
