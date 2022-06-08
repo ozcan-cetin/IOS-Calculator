@@ -32,6 +32,11 @@ buttons.addEventListener("click",(e)=>{
                 secondScreen.innerText="";
             }
         }
+        else if(e.target.classList.contains("equal")){
+            if(secondScreen.innerText && firstScreen.innerText && secondScreen.innerText.match(/[\.]$/)==null){
+                operation()
+            }
+        }
         
     }
 })
