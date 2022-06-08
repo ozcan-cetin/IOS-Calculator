@@ -42,6 +42,11 @@ buttons.addEventListener("click",(e)=>{
                 secondScreen.innerText= "-1" * secondScreen.innerText;
             }
         }
+        else if(e.target.classList.contains("percent")){
+            if(firstScreen.innerText=="" && secondScreen.innerText.match(/[.]$/)==null){
+                secondScreen.innerText=Number(secondScreen.innerText)/100;
+            }
+            }
         
     }
 })
