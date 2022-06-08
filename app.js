@@ -37,6 +37,11 @@ buttons.addEventListener("click",(e)=>{
                 operation()
             }
         }
+        else if(e.target.classList.contains("plusminus")){
+            if(secondScreen.innerText!=0){
+                secondScreen.innerText= "-1" * secondScreen.innerText;
+            }
+        }
         
     }
 })
