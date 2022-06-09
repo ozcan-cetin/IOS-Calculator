@@ -17,19 +17,28 @@ buttons.addEventListener("click",(e)=>{
             if(secondScreen.innerText==0 && secondScreen.innerText.match(/\./)==null){
                 secondScreen.innerHTML=e.target.innerText;
             }else{
-                secondScreen.innerHTML+=e.target.innerText;
+                if(secondScreen.innerText.length<=9){
+                    secondScreen.innerHTML+=e.target.innerText;
+                }
             }
         }
         else if(e.target.classList.contains("dot")){
-            if(secondScreen.innerText && secondScreen.innerText.match(/\./)==null){
+            if(secondScreen.innerText && secondScreen.innerText.match(/\./)==null && secondScreen.innerText.length<=8){
                 secondScreen.innerText+=e.target.innerText;
             }
         }
         else if(e.target.classList.contains("operator")){
-            if(secondScreen.innerText && secondScreen.innerText.match(/[\.]$/)==null){
-                secondScreen.innerText+=" " + e.target.innerText;
-                firstScreen.innerText=secondScreen.innerText; 
+            if(firstScreen.innerText.length==0 && secondScreen.innerText && secondScreen.innerText.match(/[\.]$/)==null){
+                secondScreen.innerText+=e.target.innerText;
+                firstScreen.innerText=secondScreen.innerText;
                 secondScreen.innerText="";
+            }
+            else if(firstScreen.innerText && secondScreen.innerText.length==0){
+                firstScreen.innerText=firstScreen.innerText.replace(firstScreen.innerText[firstScreen.innerText.length-1],e.target.innerText)
+            }
+            else if(firstScreen.innerText && secondScreen.innerText && secondScreen.innerText.endsWith(".")==false){
+                operationSecond();
+                firstScreen.innerText+=e.target.innerText;
             }
         }
         else if(e.target.classList.contains("equal")){
@@ -49,7 +58,7 @@ buttons.addEventListener("click",(e)=>{
             }
     }
 })
-
+// console.log(secondScreen.innerText.length);
 /*FUNCTION SECTION*/
 
 function operation(){
@@ -65,6 +74,24 @@ function operation(){
         break;
         case "/": secondScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1)) / Number(secondScreen.innerText)).toFixed(4));
         firstScreen.innerText="";
+        break;
+        default: break
+    }
+}
+
+function operationSecond(){
+    switch(firstScreen.innerText[firstScreen.innerText.length-1]){
+        case "+": firstScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1))+Number(secondScreen.innerText)).toFixed(4));
+        secondScreen.innerText="";
+        break;
+        case "-":firstScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1)) - Number(secondScreen.innerText)).toFixed(4));
+        secondScreen.innerText="";
+        break;
+        case "x":firstScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1)) * Number(secondScreen.innerText)).toFixed(4));
+        secondScreen.innerText="";
+        break;
+        case "/": firstScreen.innerText=Number((Number(firstScreen.innerText.slice(0,firstScreen.innerText.length-1)) / Number(secondScreen.innerText)).toFixed(4));
+        secondScreen.innerText="";
         break;
         default: break
     }
